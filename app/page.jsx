@@ -143,6 +143,21 @@ const coconutSlides = [
     description:
       'Setiap bulir padi yang mulai merunduk adalah saksi bisu dari tetesan keringat dan doa yang dipanjatkan. Di sini, cinta tidak diungkapkan dengan kata-kata, melainkan melalui ketelatenan dalam memastikan setiap jengkal tanah mendapatkan nutrisi terbaik. Kehidupan yang tumbuh di ladang ini adalah cerminan dari jiwa-jiwa yang memberikan segalanya demi kelangsungan hidup sesama.',
   },
+
+  {
+    id: 'hubungi-kami',
+    background: '/backgrounds/contact-rice-bg.png',
+    mode: 'contact',
+    title: 'Hubungi Kami',
+    subtitle: 'untuk Layanan Lengkap',
+    gallery: [
+      { label: 'Kopra', image: '/backgrounds/contact-kopra.png' },
+      { label: 'Arang', image: '/backgrounds/contact-charcoal.png' },
+      { label: 'Petani Lokal', image: '/backgrounds/contact-mother.png' },
+      { label: 'Kopi', image: '/backgrounds/contact-coffee.png' },
+      { label: 'Bawang', image: '/backgrounds/contact-onion.png' },
+    ],
+  },
 ];
 
 const researchReferences = [
@@ -551,6 +566,23 @@ export default function HomePage() {
                 <div className="coconut-editorial-band">
                   {activeCoconutSlide.bandTitle ? <h4>{activeCoconutSlide.bandTitle}</h4> : null}
                   <p>{activeCoconutSlide.description}</p>
+                </div>
+              </div>
+            )}
+
+            {activeCoconutSlide.mode === 'contact' && (
+              <div className="coconut-contact-content">
+                <header className="coconut-contact-header">
+                  <h3>{activeCoconutSlide.title}</h3>
+                  <p>{activeCoconutSlide.subtitle}</p>
+                </header>
+
+                <div className="coconut-contact-gallery" aria-label="Galeri produk mentah unggulan">
+                  {(activeCoconutSlide.gallery || []).map((item) => (
+                    <figure className="coconut-contact-tile" key={item.label}>
+                      <img src={item.image} alt={item.label} />
+                    </figure>
+                  ))}
                 </div>
               </div>
             )}

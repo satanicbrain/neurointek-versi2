@@ -343,3 +343,11 @@ Popup **Indonesia Coconut** diperhalus lagi supaya lebih premium dan tidak beran
 ## Patch terbaru: Refinement editorial slides
 
 Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah diperhalus: font dibuat lebih ringan, ukuran judul tidak terlalu besar, spacing lebih elegan, gradient masing-masing background lebih lembut, dan responsive mobile/tablet dirapikan.
+
+## Patch - Hubungi Kami Product Gallery
+
+- Ditambahkan slide **Hubungi Kami** setelah slide **Ladang Beras Putih** di showcase **Bisnis & Manusia**.
+- Slide memakai background sawah hijau `public/backgrounds/contact-rice-bg.png`.
+- Galeri produk ditempel dalam format horizontal: Kopra, Arang, Petani Lokal, Kopi, dan Bawang.
+- Navigasi tetap memakai panah kiri/kanan dan dot indicator yang sama dengan showcase sebelumnya.
+- Asset slide berada di `public/backgrounds/contact-*.png`.

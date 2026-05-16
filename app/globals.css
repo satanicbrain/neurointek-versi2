@@ -6648,3 +6648,167 @@ button {
     letter-spacing: 0.007em;
   }
 }
+
+/* Hubungi Kami slide - product contact gallery */
+.coconut-slide-contact {
+  background-size: cover;
+  background-position: center center;
+}
+
+.coconut-slide-contact::before {
+  background:
+    linear-gradient(180deg, rgba(8, 22, 18, 0.34) 0%, rgba(7, 19, 17, 0.24) 42%, rgba(5, 15, 8, 0.46) 100%),
+    radial-gradient(circle at 16% 17%, rgba(255, 255, 255, 0.10), transparent 32%),
+    linear-gradient(90deg, rgba(7, 18, 9, 0.26), rgba(7, 18, 9, 0.04) 50%, rgba(7, 18, 9, 0.24));
+}
+
+.coconut-slide-contact::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 46%, rgba(0, 0, 0, 0.32) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0%, transparent 42%, rgba(0, 0, 0, 0.16) 100%);
+}
+
+.coconut-contact-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  padding: clamp(66px, 10vh, 126px) clamp(58px, 7vw, 132px) clamp(74px, 9vh, 120px);
+  color: rgba(255, 255, 255, 0.94);
+  font-family: "Aptos", "Segoe UI", "Helvetica Neue", Inter, ui-sans-serif, system-ui, sans-serif;
+  text-shadow: 0 12px 36px rgba(0, 0, 0, 0.44);
+}
+
+.coconut-contact-header {
+  width: min(760px, 72vw);
+  margin-left: clamp(10px, 1.2vw, 28px);
+}
+
+.coconut-contact-header h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5.6vw, 6.4rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: 0.045em;
+}
+
+.coconut-contact-header p {
+  margin: clamp(14px, 2vh, 24px) 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2.3vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.055em;
+}
+
+.coconut-contact-gallery {
+  align-self: center;
+  width: min(1520px, 92vw);
+  margin: clamp(18px, 6vh, 72px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: clamp(14px, 1.65vw, 28px);
+  padding-inline: clamp(0px, 1vw, 18px);
+}
+
+.coconut-contact-tile {
+  position: relative;
+  min-height: clamp(220px, 26vw, 420px);
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 24px 68px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+}
+
+.coconut-contact-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 42%, rgba(0, 0, 0, 0.16)),
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.10), transparent 36%);
+  pointer-events: none;
+}
+
+.coconut-contact-tile img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.02);
+}
+
+@media (max-width: 1180px) {
+  .coconut-contact-content {
+    padding: 76px 58px 82px;
+  }
+
+  .coconut-contact-gallery {
+    width: calc(100vw - 144px);
+    gap: 14px;
+  }
+
+  .coconut-contact-tile {
+    min-height: clamp(180px, 25vw, 320px);
+  }
+}
+
+@media (max-width: 820px) {
+  .coconut-slide-contact {
+    overflow-y: auto;
+  }
+
+  .coconut-contact-content {
+    position: relative;
+    min-height: 100svh;
+    padding: 78px 54px 78px;
+  }
+
+  .coconut-contact-header {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .coconut-contact-gallery {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    align-self: start;
+  }
+
+  .coconut-contact-tile {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 560px) {
+  .coconut-contact-content {
+    padding: 80px 32px 78px;
+  }
+
+  .coconut-contact-header h3 {
+    font-size: clamp(2.25rem, 12vw, 3.2rem);
+    letter-spacing: 0.035em;
+  }
+
+  .coconut-contact-header p {
+    font-size: clamp(1.1rem, 6vw, 1.55rem);
+    letter-spacing: 0.035em;
+  }
+
+  .coconut-contact-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .coconut-contact-tile {
+    min-height: 230px;
+  }
+}
