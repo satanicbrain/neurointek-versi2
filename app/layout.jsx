@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Neurointek',
-  description: 'Website visual Neurointek berbasis full background image dan menu samping.',
+  title: 'Pt. Neurosains Inti Technology ID',
+  description: 'Website visual Pt. Neurosains Inti Technology ID berbasis full background image dan menu samping.',
 };
 
 export const viewport = {

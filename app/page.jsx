@@ -8,7 +8,7 @@ const sections = [
     number: '00',
     title: 'Home',
     label: 'Home',
-    image: '/backgrounds/0-home.png',
+    image: '/backgrounds/0-home.webp',
     tone: 'dark',
     tagline: 'Ruang visual pembuka Neurointek.',
   },
@@ -17,7 +17,7 @@ const sections = [
     number: '01',
     title: 'Bisnis & Manusia',
     label: 'Bisnis & Manusia',
-    image: '/backgrounds/5-tentang-kami.jpg',
+    image: '/backgrounds/5-tentang-kami.webp',
     tone: 'natural',
     tagline: 'Ruang penghubung antara kebutuhan bisnis dan keberlanjutan manusia.',
   },
@@ -26,7 +26,7 @@ const sections = [
     number: '02',
     title: 'Ruang Aman',
     label: 'Ruang Aman',
-    image: '/backgrounds/1-ruang-aman.jpg',
+    image: '/backgrounds/1-ruang-aman.webp',
     tone: 'light',
     tagline: 'Tempat tenang untuk bertumbuh, pulih, dan mulai kembali.',
   },
@@ -35,7 +35,7 @@ const sections = [
     number: '03',
     title: 'Produk Layanan Kesehatan Mental',
     label: 'Produk Layanan Kesehatan Mental',
-    image: '/backgrounds/2-produk-layanan.png',
+    image: '/backgrounds/2-produk-layanan.webp',
     tone: 'warm',
     tagline: 'Ekosistem solusi kesehatan mental dan produktivitas yang dapat dikembangkan bertahap.',
   },
@@ -44,7 +44,7 @@ const sections = [
     number: '04',
     title: 'Dukungan Komunitas',
     label: 'Dukungan Komunitas',
-    image: '/backgrounds/3-dukungan-komunitas.jpg',
+    image: '/backgrounds/3-dukungan-komunitas.webp',
     tone: 'community',
     tagline: 'Dibangun untuk manusia, dukungan, dan koneksi yang sehat.',
   },
@@ -53,7 +53,7 @@ const sections = [
     number: '05',
     title: 'Riset dan Pengembangan Manusia',
     label: 'Riset dan Pengembangan Manusia',
-    image: '/backgrounds/4-riset-pengembangan.jpg',
+    image: '/backgrounds/4-riset-pengembangan.webp',
     tone: 'research',
     tagline: 'Eksplorasi, strategi, dan pengembangan manusia berbasis data.',
   },
@@ -62,7 +62,7 @@ const sections = [
     number: '06',
     title: 'Tentang Kami',
     label: 'Tentang Kami',
-    image: '/backgrounds/5-tentang-kami.jpg',
+    image: '/backgrounds/5-tentang-kami.webp',
     tone: 'natural',
     tagline: 'Cerita sederhana tentang tujuan dan arah Neurointek.',
   },
@@ -71,7 +71,7 @@ const sections = [
     number: '07',
     title: 'Galeri kehidupan',
     label: 'Galeri kehidupan',
-    image: '/backgrounds/6-galeri-kehidupan.jpg',
+    image: '/backgrounds/6-galeri-kehidupan.webp',
     tone: 'green',
     tagline: 'Ruang visual untuk dokumentasi, inspirasi, dan perjalanan.',
   },
@@ -86,7 +86,7 @@ const floatingWhatsappMessage = 'Halo NeuroTech ID, saya ingin terhubung dan ber
 const coconutSlides = [
   {
     id: 'opening',
-    background: '/backgrounds/indonesia-coconut.png',
+    background: '/backgrounds/indonesia-coconut.webp',
     mode: 'opening',
     eyebrow: 'Indonesian Coconut',
     titleTop: 'Produk Mentah',
@@ -96,7 +96,7 @@ const coconutSlides = [
   },
   {
     id: 'story',
-    background: '/backgrounds/indonesia-coconut-cut.png',
+    background: '/backgrounds/indonesia-coconut-cut.webp',
     mode: 'story',
     eyebrow: 'Indonesian Coconut',
     upperText:
@@ -106,7 +106,7 @@ const coconutSlides = [
   },
   {
     id: 'arang',
-    background: '/backgrounds/coconut-arang.png',
+    background: '/backgrounds/coconut-arang.webp',
     mode: 'editorial',
     variant: 'arang',
     title: 'ARANG',
@@ -119,7 +119,7 @@ const coconutSlides = [
   },
   {
     id: 'kopra',
-    background: '/backgrounds/coconut-kopra.png',
+    background: '/backgrounds/coconut-kopra.webp',
     mode: 'editorial',
     variant: 'kopra',
     title: 'Kopra',
@@ -132,7 +132,7 @@ const coconutSlides = [
   },
   {
     id: 'ladang-beras-putih',
-    background: '/backgrounds/coconut-rice-field.png',
+    background: '/backgrounds/coconut-rice-field.webp',
     mode: 'editorial',
     variant: 'rice',
     title: 'Ladang Beras Putih',
@@ -146,16 +146,16 @@ const coconutSlides = [
 
   {
     id: 'hubungi-kami',
-    background: '/backgrounds/contact-rice-bg.png',
+    background: '/backgrounds/contact-rice-bg.webp',
     mode: 'contact',
     title: 'Hubungi Kami',
     subtitle: 'untuk Layanan Lengkap',
     gallery: [
-      { label: 'Kopra', image: '/backgrounds/contact-kopra.png' },
-      { label: 'Arang', image: '/backgrounds/contact-charcoal.png' },
-      { label: 'Petani Lokal', image: '/backgrounds/contact-mother.png' },
-      { label: 'Kopi', image: '/backgrounds/contact-coffee.png' },
-      { label: 'Bawang', image: '/backgrounds/contact-onion.png' },
+      { label: 'Kopra', image: '/backgrounds/contact-kopra.webp' },
+      { label: 'Arang', image: '/backgrounds/contact-charcoal.webp' },
+      { label: 'Petani Lokal', image: '/backgrounds/contact-mother.webp' },
+      { label: 'Kopi', image: '/backgrounds/contact-coffee.webp' },
+      { label: 'Bawang', image: '/backgrounds/contact-onion.webp' },
     ],
   },
 ];
@@ -453,7 +453,12 @@ export default function HomePage() {
       </aside>
 
       {active.id === 'home' && (
-        <section className="escape-brand" aria-label="ESCAPE Neurointek">
+        <button
+          className="escape-brand"
+          type="button"
+          aria-label="Kembali ke Home"
+          onClick={() => goToSection(0)}
+        >
           <div className="brand-topline">
             <p className="brand-kicker">Pt. Neurosains Inti Technology ID</p>
           </div>
@@ -462,7 +467,7 @@ export default function HomePage() {
             <img src="/butterfly-logo.png" alt="Logo kupu-kupu Escape" />
           </div>
           <p className="brand-subtitle">RUANG UNTUK KESEHATAN MENTAL &amp; PRODUKTIVITAS</p>
-        </section>
+        </button>
       )}
 
       {active.id === 'bisnis-manusia' && (
@@ -580,7 +585,7 @@ export default function HomePage() {
                 <div className="coconut-contact-gallery" aria-label="Galeri produk mentah unggulan">
                   {(activeCoconutSlide.gallery || []).map((item) => (
                     <figure className="coconut-contact-tile" key={item.label}>
-                      <img src={item.image} alt={item.label} />
+                      <img src={item.image} alt={item.label} loading="lazy" decoding="async" />
                     </figure>
                   ))}
                 </div>

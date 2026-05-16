@@ -4,14 +4,14 @@ Website Next.js satu halaman dengan konsep full background image. Setiap menu me
 
 ## Urutan menu dan file background
 
-1. Home → `public/backgrounds/0-home.png`
-2. Bisnis & Manusia → `public/backgrounds/5-tentang-kami.jpg`
-3. Ruang Aman → `public/backgrounds/1-ruang-aman.jpg`
-4. Produk Layanan Kesehatan Mental → `public/backgrounds/2-produk-layanan.png`
-5. Dukungan Komunitas → `public/backgrounds/3-dukungan-komunitas.jpg`
-6. Riset dan Pengembangan Manusia → `public/backgrounds/4-riset-pengembangan.jpg`
-7. Tentang Kami → `public/backgrounds/5-tentang-kami.jpg`
-8. Galeri kehidupan → `public/backgrounds/6-galeri-kehidupan.jpg`
+1. Home → `public/backgrounds/0-home.webp`
+2. Bisnis & Manusia → `public/backgrounds/5-tentang-kami.webp`
+3. Ruang Aman → `public/backgrounds/1-ruang-aman.webp`
+4. Produk Layanan Kesehatan Mental → `public/backgrounds/2-produk-layanan.webp`
+5. Dukungan Komunitas → `public/backgrounds/3-dukungan-komunitas.webp`
+6. Riset dan Pengembangan Manusia → `public/backgrounds/4-riset-pengembangan.webp`
+7. Tentang Kami → `public/backgrounds/5-tentang-kami.webp`
+8. Galeri kehidupan → `public/backgrounds/6-galeri-kehidupan.webp`
 
 ## Cara jalan lokal
 
@@ -301,7 +301,7 @@ Foto Lakudus tetap memakai `public/team/lakudus.jpg`. Foto Sadam tetap memakai `
 - Menu **Bisnis & Manusia** sekarang memiliki layout khusus, bukan lagi placeholder umum.
 - Konten utama menampilkan narasi awal tentang hubungan bisnis, manusia, dan produk mentah unggulan Indonesia.
 - Ditambahkan blok **Produk mentah unggulan** dengan item klik **Indonesia Coconut**.
-- Saat **Indonesia Coconut** diklik, muncul popup modal dengan background gambar kelapa/pohon yang tersimpan di `public/backgrounds/indonesia-coconut.png`.
+- Saat **Indonesia Coconut** diklik, muncul popup modal dengan background gambar kelapa/pohon yang tersimpan di `public/backgrounds/indonesia-coconut.webp`.
 - Modal sudah bisa ditutup lewat tombol `×`, klik area luar modal, atau tombol `Siap dikembangkan`.
 - Modal juga otomatis tertutup saat user pindah menu.
 
@@ -312,7 +312,7 @@ Foto Lakudus tetap memakai `public/team/lakudus.jpg`. Foto Sadam tetap memakai `
 - Slide kedua memakai background potongan kelapa dengan narasi efisiensi kelapa Indonesia dan deskripsi keunggulan produk.
 - Tombol panah kiri/kanan bisa dipakai untuk berpindah antar 2 tampilan.
 - Keyboard juga didukung: `ArrowLeft`, `ArrowRight`, dan `Escape` untuk tutup showcase.
-- Asset baru berada di `public/backgrounds/indonesia-coconut-cut.png`.
+- Asset baru berada di `public/backgrounds/indonesia-coconut-cut.webp`.
 
 ## Patch Coconut Showcase Polish
 
@@ -347,7 +347,24 @@ Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah 
 ## Patch - Hubungi Kami Product Gallery
 
 - Ditambahkan slide **Hubungi Kami** setelah slide **Ladang Beras Putih** di showcase **Bisnis & Manusia**.
-- Slide memakai background sawah hijau `public/backgrounds/contact-rice-bg.png`.
+- Slide memakai background sawah hijau `public/backgrounds/contact-rice-bg.webp`.
 - Galeri produk ditempel dalam format horizontal: Kopra, Arang, Petani Lokal, Kopi, dan Bawang.
 - Navigasi tetap memakai panah kiri/kanan dan dot indicator yang sama dengan showcase sebelumnya.
-- Asset slide berada di `public/backgrounds/contact-*.png`.
+- Asset slide berada di `public/backgrounds/contact-*.webp`.
+
+
+## Final Patch Notes
+
+- Website title sudah menjadi **Pt. Neurosains Inti Technology ID**.
+- Logo/tulisan **ESCAPE** di halaman Home sekarang bisa diklik untuk kembali ke Home.
+- Slide **Hubungi Kami** diperhalus: judul lebih kecil, spacing lebih rapi, dan kotak galeri diperkecil agar tidak berantakan.
+- Asset background utama sudah dioptimasi ke format **WebP** agar loading lebih ringan.
+
+## Cara Membuat Load Gambar Lebih Ringan
+
+1. Gunakan format **WebP** untuk background dan galeri.
+2. Untuk gambar full-screen, cukup simpan lebar sekitar **1920–2048px**; tidak perlu terlalu besar kalau hanya untuk website.
+3. Kompres kualitas di kisaran **75–85** agar tetap tajam tapi ukuran jauh lebih kecil.
+4. Gunakan `loading="lazy"` untuk gambar galeri atau gambar yang tidak langsung terlihat.
+5. Jangan load semua gambar sekaligus; tampilkan hanya slide/menu yang sedang dibuka.
+6. Untuk deploy production di Next.js, jalankan `npm run build` agar asset dan bundle diproses optimal.
