@@ -483,7 +483,7 @@ export default function HomePage() {
         <div className="coconut-showcase" role="presentation" onClick={() => setCoconutModalOpen(false)}>
           <section
             key={activeCoconutSlide.id}
-            className={`coconut-slide coconut-slide-${activeCoconutSlide.mode}`}
+            className={`coconut-slide coconut-slide-${activeCoconutSlide.mode} ${activeCoconutSlide.variant ? `coconut-slide-${activeCoconutSlide.variant}` : ''}`}
             role="dialog"
             aria-modal="true"
             aria-label="Indonesia Coconut"

@@ -339,3 +339,7 @@ Popup **Indonesia Coconut** diperhalus lagi supaya lebih premium dan tidak beran
 - Gradasi overlay tiap slide diperhalus agar teks tetap terbaca tanpa terlihat berat.
 - Font pada showcase dibuat lebih ringan, tidak bold, dan lebih clean.
 - Responsive mobile/tablet untuk tombol panah disesuaikan agar tetap compact.
+
+## Patch terbaru: Refinement editorial slides
+
+Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah diperhalus: font dibuat lebih ringan, ukuran judul tidak terlalu besar, spacing lebih elegan, gradient masing-masing background lebih lembut, dan responsive mobile/tablet dirapikan.
