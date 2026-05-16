@@ -104,6 +104,45 @@ const coconutSlides = [
     description:
       'Keunggulan kelapa Indonesia adalah perpaduan antara ketulusan alam dan ketangguhan karakter. Ia bukan sekadar hasil bumi; ia adalah duta kehangatan tropis yang membawa kualitas tanpa kompromi ke setiap penjuru dunia.',
   },
+  {
+    id: 'arang',
+    background: '/backgrounds/coconut-arang.png',
+    mode: 'editorial',
+    variant: 'arang',
+    title: 'ARANG',
+    subtitle: 'Lahir dari Api dan Ketulusan',
+    upperText:
+      'Proses penciptaan arang ini bukanlah sekadar pembakaran biasa. Ia adalah sebuah seni yang menuntut kesabaran. Tempurung kelapa pilihan dibersihkan dengan tangan-tangan terampil, lalu dimasukkan ke dalam tungku dengan suhu yang terjaga. Di sana, dalam kegelapan api, tempurung yang keras berubah menjadi arang hitam yang legam dan berkilau. Para pengrajin bekerja dengan standar profesional, memastikan setiap keping arang memiliki karbonisasi yang sempurna, tanpa asap yang mengganggu, mencerminkan kejernihan niat mereka.',
+    bandTitle: 'Kehangatan untuk kebahagiaan',
+    description:
+      'Kehangatan yang dihasilkan oleh arang ini adalah representasi dari kehangatan kasih sayang masyarakat dalam menjaga keberlangsungan alam. Dari batok yang terlupakan, muncul kekuatan yang menyala, membuktikan bahwa kebermanfaatan sejati seringkali ditemukan dalam kesederhanaan yang dipoles dengan profesionalisme dan cinta.',
+  },
+  {
+    id: 'kopra',
+    background: '/backgrounds/coconut-kopra.png',
+    mode: 'editorial',
+    variant: 'kopra',
+    title: 'Kopra',
+    subtitle: '',
+    upperText:
+      'Bisnis yang hebat dibangun di atas fondasi yang kuat dan dalam industri berbasis kelapa, fondasi itu adalah kopra yang unggul. Dengan memilih kopra yang diproses secara benar dan etis, Anda tidak hanya mengamankan kualitas produk akhir, tetapi juga menyebarkan dampak positif bagi seluruh ekosistem di dalamnya.',
+    bandTitle: 'Suhu yang pas untuk kualitas terbaik',
+    description:
+      'Di tanah pesisir yang dipenuhi aroma garam, kopra lahir dari sebuah perjalanan panjang yang melibatkan api dan matahari. Bagi warga lokal, mengolah daging kelapa menjadi kopra adalah sebuah ritual ketekunan. Mereka tidak hanya mengandalkan tenaga otot, tetapi juga kepekaan rasa dalam memahami cuaca dan suhu.',
+  },
+  {
+    id: 'ladang-beras-putih',
+    background: '/backgrounds/coconut-rice-field.png',
+    mode: 'editorial',
+    variant: 'rice',
+    title: 'Ladang Beras Putih',
+    subtitle: '',
+    upperText:
+      'Setiap pagi, sebelum matahari benar-benar menyapa bumi, langkah kaki para petani telah membelah embun. Ada ritme yang indah dalam setiap gerakan mereka—tangan-tangan yang lincah mencabut rumput liar, bahu yang kokoh memanggul air, dan tatapan mata yang penuh harap pada tunas-tunas hijau yang mulai meninggi. Mereka memberikan tenaga mereka bukan karena keharusan, melainkan karena sebuah hubungan emosional yang mendalam.',
+    bandTitle: '',
+    description:
+      'Setiap bulir padi yang mulai merunduk adalah saksi bisu dari tetesan keringat dan doa yang dipanjatkan. Di sini, cinta tidak diungkapkan dengan kata-kata, melainkan melalui ketelatenan dalam memastikan setiap jengkal tanah mendapatkan nutrisi terbaik. Kehidupan yang tumbuh di ladang ini adalah cerminan dari jiwa-jiwa yang memberikan segalanya demi kelangsungan hidup sesama.',
+  },
 ];
 
 const researchReferences = [
@@ -497,6 +536,20 @@ export default function HomePage() {
                 <p className="coconut-story-top">{activeCoconutSlide.upperText}</p>
                 <div className="coconut-story-band">
                   <h3>{activeCoconutSlide.eyebrow}</h3>
+                  <p>{activeCoconutSlide.description}</p>
+                </div>
+              </div>
+            )}
+
+            {activeCoconutSlide.mode === 'editorial' && (
+              <div className={`coconut-editorial-content coconut-editorial-${activeCoconutSlide.variant || 'default'}`}>
+                <div className="coconut-editorial-head">
+                  <h3>{activeCoconutSlide.title}</h3>
+                  {activeCoconutSlide.subtitle ? <p>{activeCoconutSlide.subtitle}</p> : null}
+                </div>
+                <p className="coconut-editorial-top">{activeCoconutSlide.upperText}</p>
+                <div className="coconut-editorial-band">
+                  {activeCoconutSlide.bandTitle ? <h4>{activeCoconutSlide.bandTitle}</h4> : null}
                   <p>{activeCoconutSlide.description}</p>
                 </div>
               </div>
