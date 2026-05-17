@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Pt. Neurosains Inti Technology ID',
-  description: 'Website visual Pt. Neurosains Inti Technology ID berbasis full background image dan menu samping.',
+  title: 'PT. Neurosains Inti Technology ID',
+  description: 'Website visual PT. Neurosains Inti Technology ID berbasis full background image dan menu samping.',
 };
 
 export const viewport = {

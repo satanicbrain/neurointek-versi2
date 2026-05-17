@@ -355,7 +355,7 @@ Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah 
 
 ## Final Patch Notes
 
-- Website title sudah menjadi **Pt. Neurosains Inti Technology ID**.
+- Website title sudah menjadi **PT. Neurosains Inti Technology ID**.
 - Logo/tulisan **ESCAPE** di halaman Home sekarang bisa diklik untuk kembali ke Home.
 - Slide **Hubungi Kami** diperhalus: judul lebih kecil, spacing lebih rapi, dan kotak galeri diperkecil agar tidak berantakan.
 - Asset background utama sudah dioptimasi ke format **WebP** agar loading lebih ringan.
@@ -368,3 +368,35 @@ Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah 
 4. Gunakan `loading="lazy"` untuk gambar galeri atau gambar yang tidak langsung terlihat.
 5. Jangan load semua gambar sekaligus; tampilkan hanya slide/menu yang sedang dibuka.
 6. Untuk deploy production di Next.js, jalankan `npm run build` agar asset dan bundle diproses optimal.
+
+## Patch: Produk Layanan Kesehatan Mental
+
+Halaman `Produk Layanan Kesehatan Mental` sudah memiliki layout khusus 2 kolom:
+
+- Kolom kiri: narasi utama, catatan T&C user bisnis, kategori layanan, dan CTA konsultasi.
+- Kolom kanan: detail Digital Mental Health Support, Digital Wellness, Asesmen Psikologis, daftar model skrining, disclaimer hasil, dan Custom Layanan.
+- CTA layanan mengarah ke nomor WhatsApp global yang sudah dikonfigurasi di `floatingWhatsappNumber` pada `app/page.jsx`.
+
+Untuk pengembangan berikutnya, bagian asesmen dapat dihubungkan ke backend/API khusus agar hasil skrining, akses gratis, dan akses berbayar bisa dikelola dari dashboard admin.
+
+## Patch Produk Layanan - Center Layout
+Halaman **Produk Layanan Kesehatan Mental** diperbaiki agar komposisi teks berada di tengah layar, bukan bergeser ke pojok kanan. Layout desktop tetap 2 kolom, sedangkan tablet/mobile otomatis menjadi 1 kolom dengan scroll halaman.
+
+## Patch Produk Layanan Font Bigger
+
+- Font halaman Produk Layanan Kesehatan Mental dibesarkan sedikit agar lebih nyaman dibaca.
+- Layout tetap dipertahankan center-screen dan tidak digeser.
+- Penyesuaian berlaku untuk hero, detail layanan, assessment, tombol, dan mobile responsive.
+
+
+## Handover Prompt
+
+File `HANDOVER_PROMPT.md` disertakan untuk melanjutkan patch berikutnya. Ringkasnya: project ini adalah website Next.js single-page dengan background visual per menu, menu kanan minimalis, floating WhatsApp global, dan style tipis/premium. Update terakhir mengganti background Produk Layanan Kesehatan Mental ke sunset/laut dan menambahkan tombol WhatsApp di showcase Indonesia Coconut.
+
+## Patch Produk Layanan Background Lake Sunset
+
+Background menu **Produk Layanan Kesehatan Mental** diganti ke visual danau/sunset terbaru dari upload user. File tetap memakai path yang sama agar tidak perlu mengubah logic section: `public/backgrounds/2-produk-layanan.webp`.
+
+## Handover Prompt Update
+
+File `HANDOVER_PROMPT.md` tetap disertakan. Update terakhir: background Produk Layanan Kesehatan Mental diganti dari sunset laut ke visual danau/sunset terbaru, tetap dalam format WebP ringan.

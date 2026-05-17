@@ -82,6 +82,60 @@ const researchTargetEmail = '';
 const researchTargetWhatsapp = '';
 const floatingWhatsappNumber = '628176494177';
 const floatingWhatsappMessage = 'Halo NeuroTech ID, saya ingin terhubung dan bertanya tentang layanan.';
+const coconutWhatsappMessage = 'Halo NeuroTech ID, saya tertarik dengan Indonesia Coconut dan produk mentah unggulan.';
+
+
+const mentalHealthServices = [
+  {
+    category: 'Digital Mental Health Support',
+    items: [
+      {
+        title: 'Employee Emotion Tracking',
+        tagline: 'Providing company to make a better decision.',
+        body:
+          'Untuk menghasilkan kinerja optimal, seseorang harus berada dalam kondisi sehat secara jasmani dan psikis. Emotion Tracking dari Escape memberi gambaran global atau kelompok untuk melihat tingkat emosi dan kestabilan kinerja karyawan, sekaligus membantu perusahaan menghindari risiko burnout yang dapat mengurangi produktivitas. Kami percaya jiwa yang sehat akan menciptakan perusahaan yang berdaya.',
+      },
+      {
+        title: 'Mental Health Corporate Program',
+        tagline: 'Program terstruktur untuk ekosistem kerja yang lebih sehat.',
+        body:
+          'Memahami kesehatan mental secara tepat dan terstruktur dalam rangka pembangunan ekosistem positif di dalam organisasi. Layanan ini berfokus pada penguatan aspek individu, regulasi internal, dan interaksi kerja yang sehat agar manajemen dapat menentukan strategi yang tepat guna.',
+      },
+    ],
+  },
+  {
+    category: 'Digital Wellness',
+    items: [
+      {
+        title: 'Escape',
+        tagline: 'Sleep, calm, recovery, dan dukungan pulih digital.',
+        body:
+          'Kesehatan mental sangat berkaitan dengan kualitas tidur. Escape membantu karyawan mencapai kondisi tidur yang lebih dalam dan optimal. Didukung tim profesional dan riset bertaraf internasional, aplikasi ini dapat menjadi solusi pendukung kinerja melalui perbaikan kualitas tidur.',
+      },
+      {
+        title: 'ProLife',
+        tagline: 'Kesehatan fisik dimulai dari langkah sederhana.',
+        body:
+          'Kami percaya tubuh dan mental yang sehat akan berkontribusi maksimal pada kinerja organisasi. Kesehatan fisik menjadi gambaran kuat agar manusia dapat merasakan kesejahteraan hidup yang lebih baik, menyebarkan hal positif, dan berperan aktif dalam kelompok maupun masyarakat.',
+      },
+      {
+        title: 'Catatan Keuangan, Habit Tracking, Movement',
+        tagline: 'Fitur pendamping untuk kebiasaan hidup yang lebih seimbang.',
+        body:
+          'Modul pendukung disiapkan bertahap untuk membantu pengguna memahami pola finansial, kebiasaan harian, aktivitas tubuh, dan ritme hidup yang memengaruhi kesejahteraan mereka secara utuh.',
+      },
+    ],
+  },
+];
+
+const assessmentModels = [
+  { title: 'Skrining Kesehatan Mental Umum', source: 'GMHQ-5 WHO', status: 'Gratis awal' },
+  { title: 'Skrining Kecemasan Umum', source: 'Hamilton Adapted', status: 'Request / Buy Access' },
+  { title: 'Skrining Depresi Umum', source: 'PHQ-9', status: 'Request / Buy Access' },
+  { title: 'Skrining Gangguan Tidur', source: 'SIS', status: 'Request / Buy Access' },
+  { title: 'Skrining NPD', source: 'By NeuroTech ID', status: 'Request / Buy Access' },
+  { title: 'Model lainnya', source: 'Menyusul', status: '99+ model' },
+];
 
 const coconutSlides = [
   {
@@ -384,6 +438,7 @@ export default function HomePage() {
   }
 
   const floatingWhatsappUrl = `https://wa.me/${floatingWhatsappNumber}?text=${encodeURIComponent(floatingWhatsappMessage)}`;
+  const coconutWhatsappUrl = `https://wa.me/${floatingWhatsappNumber}?text=${encodeURIComponent(coconutWhatsappMessage)}`;
 
   function submitResearchRequest(event, channel) {
     const form = event.currentTarget.form;
@@ -460,7 +515,7 @@ export default function HomePage() {
           onClick={() => goToSection(0)}
         >
           <div className="brand-topline">
-            <p className="brand-kicker">Pt. Neurosains Inti Technology ID</p>
+            <p className="brand-kicker">PT. Neurosains Inti Technology ID</p>
           </div>
           <div className="brand-row">
             <h1>ESCAPE</h1>
@@ -547,6 +602,7 @@ export default function HomePage() {
                 <div className="coconut-band">
                   <p>{activeCoconutSlide.eyebrow}</p>
                   <small>{activeCoconutSlide.description}</small>
+                  <a className="coconut-whatsapp-cta" href={coconutWhatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
               </div>
             )}
@@ -557,6 +613,7 @@ export default function HomePage() {
                 <div className="coconut-story-band">
                   <h3>{activeCoconutSlide.eyebrow}</h3>
                   <p>{activeCoconutSlide.description}</p>
+                  <a className="coconut-whatsapp-cta" href={coconutWhatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
               </div>
             )}
@@ -571,6 +628,7 @@ export default function HomePage() {
                 <div className="coconut-editorial-band">
                   {activeCoconutSlide.bandTitle ? <h4>{activeCoconutSlide.bandTitle}</h4> : null}
                   <p>{activeCoconutSlide.description}</p>
+                  <a className="coconut-whatsapp-cta" href={coconutWhatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
               </div>
             )}
@@ -580,6 +638,7 @@ export default function HomePage() {
                 <header className="coconut-contact-header">
                   <h3>{activeCoconutSlide.title}</h3>
                   <p>{activeCoconutSlide.subtitle}</p>
+                  <a className="coconut-whatsapp-cta coconut-contact-wa" href={coconutWhatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </header>
 
                 <div className="coconut-contact-gallery" aria-label="Galeri produk mentah unggulan">
@@ -657,6 +716,109 @@ export default function HomePage() {
               </button>
             </article>
           </div>
+        </section>
+      )}
+
+      {active.id === 'produk-layanan' && (
+        <section className="mental-products-section" aria-live="polite">
+          <article className="mental-products-hero">
+            <p className="mental-products-kicker">03 <span>/</span> Produk Layanan Kesehatan Mental</p>
+            <h2>Produk Layanan</h2>
+            <p className="mental-products-subtitle">Digital mental health support untuk bisnis yang ingin tumbuh tanpa kehilangan sisi manusia.</p>
+            <p className="mental-products-body">
+              Di balik target, angka, dan strategi besar, selalu ada manusia yang bekerja dengan hati.
+              Layanan NeuroTech ID membantu perusahaan memahami kondisi psikologis tim, membangun budaya kerja
+              yang lebih sehat, dan mengambil keputusan dengan lebih manusiawi.
+            </p>
+            <p className="mental-products-terms">
+              Catatan: detail hak akses, batas penggunaan data, dan ketentuan layanan bisnis dapat dirapikan lagi
+              dalam T&amp;C perjanjian penggunaan untuk user bisnis.
+            </p>
+            <div className="mental-products-chips" aria-label="Kategori layanan">
+              <span>Digital Support</span>
+              <span>Digital Wellness</span>
+              <span>Assessment</span>
+              <span>Custom</span>
+            </div>
+            <a className="mental-products-cta" href={floatingWhatsappUrl} target="_blank" rel="noopener noreferrer">
+              Konsultasi Layanan Bisnis
+            </a>
+          </article>
+
+          <aside className="mental-products-panel" aria-label="Detail produk layanan kesehatan mental">
+            <div className="mental-panel-scroll-hint" aria-hidden="true">scroll layanan</div>
+
+            <section className="mental-service-intro">
+              <span>Untuk Organisasi</span>
+              <h3>Bangun ekosistem kerja yang sehat, terukur, dan tetap manusiawi.</h3>
+              <p>
+                Paket layanan dapat disusun bertahap sesuai kebutuhan perusahaan: mulai dari pemetaan emosi,
+                program corporate mental health, wellness digital, asesmen, hingga rancangan layanan khusus.
+              </p>
+            </section>
+
+            {mentalHealthServices.map((group) => (
+              <section className="mental-service-group" key={group.category}>
+                <p className="mental-group-title">{group.category}</p>
+                <div className="mental-service-list">
+                  {group.items.map((item) => (
+                    <article className="mental-service-card" key={item.title}>
+                      <span>{item.tagline}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+
+            <section className="mental-assessment-block">
+              <div className="mental-assessment-head">
+                <div>
+                  <p className="mental-group-title">Asesmen Psikologis</p>
+                  <h3>99+ Model Skrining Psikologis Tersedia Disini</h3>
+                </div>
+                <span>IN / ENG</span>
+              </div>
+              <p className="mental-assessment-quote">
+                “Membangun bisnis bukan hanya soal strategi, tapi soal menempatkan hati di tempat yang tepat.
+                Layanan asesmen kami hadir untuk membantu Anda mengenal tim lebih dalam—bukan sekadar kompetensi,
+                tapi juga kenyamanan mereka dalam berkarya.”
+              </p>
+              <div className="mental-assessment-list">
+                {assessmentModels.map((item, index) => (
+                  <article key={item.title}>
+                    <small>{String(index + 1).padStart(2, '0')}</small>
+                    <div>
+                      <h4>{item.title}</h4>
+                      <p>{item.source}</p>
+                    </div>
+                    <span>{item.status}</span>
+                  </article>
+                ))}
+              </div>
+              <div className="mental-result-note">
+                <strong>Catatan hasil</strong>
+                <p>
+                  Hasil skrining bersifat edukatif dan indikatif, bukan diagnosis klinis. Untuk keputusan medis,
+                  pengguna tetap diarahkan berkonsultasi dengan psikolog, psikiater, atau tenaga profesional berwenang.
+                </p>
+              </div>
+            </section>
+
+            <section className="mental-custom-service">
+              <p className="mental-group-title">Custom Layanan</p>
+              <h3>Karena bisnis yang sehat dimulai dari tim yang bahagia dan dipahami.</h3>
+              <p>
+                Di balik setiap angka dan target yang besar, ada manusia-manusia hebat yang berjuang dengan sepenuh hati.
+                Mari bantu mereka menemukan potensi terbaiknya melalui pendekatan yang tepat. Bersama NeuroTech ID,
+                mari melangkah membangun masa depan yang lebih sejahtera.
+              </p>
+              <a href={floatingWhatsappUrl} target="_blank" rel="noopener noreferrer">
+                Request / Buy Access
+              </a>
+            </section>
+          </aside>
         </section>
       )}
 
@@ -937,7 +1099,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {active.id !== 'home' && active.id !== 'bisnis-manusia' && active.id !== 'ruang-aman' && active.id !== 'dukungan-komunitas' && active.id !== 'riset-pengembangan' && active.id !== 'tentang-kami' && (
+      {active.id !== 'home' && active.id !== 'bisnis-manusia' && active.id !== 'ruang-aman' && active.id !== 'produk-layanan' && active.id !== 'dukungan-komunitas' && active.id !== 'riset-pengembangan' && active.id !== 'tentang-kami' && (
         <section className="content-card" aria-live="polite">
           <div>
             <p>{active.number}</p>
