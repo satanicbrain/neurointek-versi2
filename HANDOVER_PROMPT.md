@@ -35,3 +35,8 @@ Instruksi gaya untuk patch berikutnya:
 - Pastikan semua layout center screen dan responsive.
 - Gunakan WebP terkompresi untuk gambar baru.
 - Untuk setiap ZIP update berikutnya, sertakan file `HANDOVER_PROMPT.md` ini dan update bagian “Handover Prompt” di README.
+
+## Patch terbaru - Bisnis & Manusia CTA + background riset
+- Background halaman `Riset dan Pengembangan Manusia` diganti ke gambar business research hitam-putih (`public/backgrounds/4-riset-pengembangan.webp`).
+- Tombol/form pada halaman riset diperjelas dengan kontras lebih kuat agar tetap terbaca di atas background baru.
+- CTA `Produk mentah unggulan / Indonesia Coconut / Lihat narasi produk` di halaman `Bisnis & Manusia` diberi animasi halus: float, glow, light sweep, dan dot pulse supaya user paham bahwa itu tombol klik.

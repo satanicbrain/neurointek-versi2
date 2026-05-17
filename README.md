@@ -400,3 +400,9 @@ Background menu **Produk Layanan Kesehatan Mental** diganti ke visual danau/suns
 ## Handover Prompt Update
 
 File `HANDOVER_PROMPT.md` tetap disertakan. Update terakhir: background Produk Layanan Kesehatan Mental diganti dari sunset laut ke visual danau/sunset terbaru, tetap dalam format WebP ringan.
+
+## Patch terbaru - CTA Produk Mentah + Background Riset
+
+- Background menu **Riset dan Pengembangan Manusia** diganti ke gambar analitik/meeting hitam-putih.
+- Tombol-tombol riset diperjelas supaya tidak menyatu atau overlap visual dengan background.
+- CTA **Indonesia Coconut** pada menu **Bisnis & Manusia** diberi animasi halus agar terasa clickable tanpa merusak estetika minimalis.
