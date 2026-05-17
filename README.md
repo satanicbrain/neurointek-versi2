@@ -412,3 +412,13 @@ File `HANDOVER_PROMPT.md` tetap disertakan. Update terakhir: background Produk L
 - Menu mobile diposisikan di tengah layar dengan panel glass minimalis.
 - CTA Indonesia Coconut di halaman Bisnis & Manusia dibuat lebih terlihat di mobile lewat animasi tap, sweep, pulse dot, dan label tap.
 - File handover lanjutan tetap tersedia di `HANDOVER_PROMPT.md`.
+
+### Patch mobile menu hard dark overlay
+Pada mobile, hamburger menu kini membuka menu full-screen dengan background gelap solid agar item menu tidak overlap dengan konten halaman aktif. Perubahan utama ada di `app/globals.css` pada blok `Mobile menu hard-dark overlay patch`.
+
+
+## Patch terbaru
+
+- Menu tidak lagi otomatis terbuka saat website pertama kali dibuka.
+- Foto Iis Syadiah S.H sudah dipasang pada bagian BOD Tentang Kami.
+- Urutan BOD tetap: Lakudus → Iis Syadiah S.H → Ahyar Anas → Della Angela → Sadam Nursidi.

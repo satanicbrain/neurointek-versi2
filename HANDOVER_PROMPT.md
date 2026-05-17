@@ -46,3 +46,16 @@ Instruksi gaya untuk patch berikutnya:
 - CSS mobile menu dipoles: `.side-menu` menjadi panel tengah di layar, list menu center, font lebih terbaca, glow tetap aktif, dan klik area gelap menutup menu.
 - CTA `Produk mentah unggulan / Indonesia Coconut / Lihat narasi produk` di halaman `Bisnis & Manusia` diperkuat khusus mobile: panel glass halus, animasi tap/float, light sweep, pulse dot, label `tap`, dan garis bergerak agar terlihat jelas sebagai tombol.
 - Tidak mengubah konten, nomor WhatsApp, atau urutan menu.
+
+## Patch terbaru - Mobile menu hard dark overlay
+- Mobile menu diperbaiki supaya saat hamburger dibuka seluruh layar menjadi dark overlay solid.
+- Menu mobile sekarang tampil full-screen centered, tidak overlap dengan konten halaman.
+- Z-index disusun ulang: dark overlay menutup konten/WA floating, menu dan hamburger tetap di atas.
+- Font menu tetap minimalis, tipis, dengan glow halus pada hover/active.
+
+
+## Patch terbaru
+
+- Menu tidak lagi otomatis terbuka saat website pertama kali dibuka.
+- Foto Iis Syadiah S.H sudah dipasang pada bagian BOD Tentang Kami.
+- Urutan BOD tetap: Lakudus → Iis Syadiah S.H → Ahyar Anas → Della Angela → Sadam Nursidi.

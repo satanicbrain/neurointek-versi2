@@ -274,9 +274,9 @@ const boardMembers = [
       'Namun, kami menyadari bahwa keberhasilan secara fisik tidaklah utuh tanpa ketenangan di dalam diri. Oleh karena itu, melalui inovasi teknologi kesehatan mental, kami berupaya menciptakan ruang digital yang aman dan solutif. Kami hadir untuk memastikan bahwa di tengah hiruk-pikuk modernitas, setiap manusia tetap memiliki akses untuk memulihkan diri, memahami dirinya sendiri, dan bertumbuh secara sehat. Teknologi bagi kami bukanlah alat untuk menjauhkan, melainkan sarana untuk mendekatkan manusia pada hakikat kebahagiaannya. Kepada para mitra strategis, rekan-rekan kerja, dan seluruh pemangku kepentingan, terima kasih telah berjalan beriringan bersama kami. Mari kita terus melangkah maju, menghadirkan kualitas terbaik dari akar bumi untuk dunia, salam hangat dan sukses selalu.',
   },
   {
-    name: 'Iis Syadiah',
+    name: 'Iis Syadiah S.H',
     role: 'Direktur Utama',
-    image: '',
+    image: '/team/iis-syadiah.webp',
     initials: 'IS',
     highlight: 'Bisnis bertumbuh tanpa kehilangan sisi kemanusiaannya.',
     message:
@@ -348,7 +348,7 @@ function getYoutubeEmbedUrl(url) {
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [selectedBoardIndex, setSelectedBoardIndex] = useState(0);
   const [aboutExpanded, setAboutExpanded] = useState(false);
   const [coconutModalOpen, setCoconutModalOpen] = useState(false);
