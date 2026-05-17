@@ -40,3 +40,9 @@ Instruksi gaya untuk patch berikutnya:
 - Background halaman `Riset dan Pengembangan Manusia` diganti ke gambar business research hitam-putih (`public/backgrounds/4-riset-pengembangan.webp`).
 - Tombol/form pada halaman riset diperjelas dengan kontras lebih kuat agar tetap terbaca di atas background baru.
 - CTA `Produk mentah unggulan / Indonesia Coconut / Lihat narasi produk` di halaman `Bisnis & Manusia` diberi animasi halus: float, glow, light sweep, dan dot pulse supaya user paham bahwa itu tombol klik.
+
+## Patch terbaru - Responsive mobile menu + CTA mobile
+- Ditambahkan `.menu-screen-dim` di `app/page.jsx` setelah layer background. Saat hamburger/menu dibuka di mobile, layar menjadi lebih gelap dengan blur halus supaya menu kanan tidak overlap dengan redaksi halaman.
+- CSS mobile menu dipoles: `.side-menu` menjadi panel tengah di layar, list menu center, font lebih terbaca, glow tetap aktif, dan klik area gelap menutup menu.
+- CTA `Produk mentah unggulan / Indonesia Coconut / Lihat narasi produk` di halaman `Bisnis & Manusia` diperkuat khusus mobile: panel glass halus, animasi tap/float, light sweep, pulse dot, label `tap`, dan garis bergerak agar terlihat jelas sebagai tombol.
+- Tidak mengubah konten, nomor WhatsApp, atau urutan menu.

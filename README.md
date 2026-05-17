@@ -406,3 +406,9 @@ File `HANDOVER_PROMPT.md` tetap disertakan. Update terakhir: background Produk L
 - Background menu **Riset dan Pengembangan Manusia** diganti ke gambar analitik/meeting hitam-putih.
 - Tombol-tombol riset diperjelas supaya tidak menyatu atau overlap visual dengan background.
 - CTA **Indonesia Coconut** pada menu **Bisnis & Manusia** diberi animasi halus agar terasa clickable tanpa merusak estetika minimalis.
+
+## Patch terbaru: Responsive mobile menu dan CTA mobile
+- Hamburger menu di mobile sekarang membuka overlay gelap + blur halus agar tulisan menu terbaca dan tidak bertabrakan dengan konten halaman.
+- Menu mobile diposisikan di tengah layar dengan panel glass minimalis.
+- CTA Indonesia Coconut di halaman Bisnis & Manusia dibuat lebih terlihat di mobile lewat animasi tap, sweep, pulse dot, dan label tap.
+- File handover lanjutan tetap tersedia di `HANDOVER_PROMPT.md`.

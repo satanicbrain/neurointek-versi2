@@ -481,6 +481,11 @@ export default function HomePage() {
       <div className="background-layer" style={backgroundStyle} />
       <div className="vignette-layer" />
       <div className="soft-layer" />
+      <div
+        className={`menu-screen-dim ${menuOpen ? 'is-active' : ''}`}
+        aria-hidden="true"
+        onClick={() => setMenuOpen(false)}
+      />
 
       <button
         className="menu-trigger"
