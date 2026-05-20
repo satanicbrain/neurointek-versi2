@@ -1,26 +1,19 @@
-# Neurointek Background Website
+# Escape Landing Page — Next.js
 
-Website Next.js satu halaman dengan konsep full background image. Setiap menu menggunakan satu gambar background penuh, dan menu kanan minimal akan otomatis menutup setelah user memilih menu.
+Landing page cinematic satu halaman untuk **Escape** dengan background full-screen, side menu kanan, panel konten glassmorphism, tombol **RELAX**, logo kupu-kupu PNG transparan, glow typography, dan tampilan responsive.
 
-## Urutan menu dan file background
-
-1. Home → `public/backgrounds/0-home.webp`
-2. Bisnis & Manusia → `public/backgrounds/5-tentang-kami.webp`
-3. Ruang Aman → `public/backgrounds/1-ruang-aman.webp`
-4. Produk Layanan Kesehatan Mental → `public/backgrounds/2-produk-layanan.webp`
-5. Dukungan Komunitas → `public/backgrounds/3-dukungan-komunitas.webp`
-6. Riset dan Pengembangan Manusia → `public/backgrounds/4-riset-pengembangan.webp`
-7. Tentang Kami → `public/backgrounds/5-tentang-kami.webp`
-8. Galeri kehidupan → `public/backgrounds/6-galeri-kehidupan.webp`
-
-## Cara jalan lokal
+## Cara menjalankan
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka `http://localhost:3000`.
+Buka:
+
+```text
+http://localhost:3000
+```
 
 ## Build production
 
@@ -31,394 +24,361 @@ npm run start
 
 ## Deploy ke Vercel
 
-Upload folder ini ke GitHub, lalu import project dari Vercel. Tidak perlu environment variable untuk versi awal ini.
+1. Upload folder project ini ke GitHub.
+2. Import repository di Vercel.
+3. Framework preset: **Next.js**.
+4. Build command: `npm run build`.
+5. Output directory: biarkan default.
 
-## Edit menu, tulisan, dan gambar
+## Cara mengganti background utama
 
-Edit data `sections` di:
+Ganti file ini:
 
-```txt
-app/page.jsx
+```text
+public/escape-bg-main.png
 ```
 
-Untuk mengganti tampilan, edit:
+Gunakan nama file yang sama agar tidak perlu ubah kode.
 
-```txt
+Rekomendasi gambar:
+
+- Landscape 16:9.
+- Minimal 1366 × 768 px.
+- Lebih bagus 1920 × 1080 px.
+- Format PNG/JPG/WebP.
+
+## Cara mengganti logo kupu-kupu
+
+Ganti file ini:
+
+```text
+public/escape-butterfly.png
+```
+
+Agar favicon ikut berubah, ganti juga:
+
+```text
+public/escape-butterfly-icon.png
+```
+
+Posisi dan ukuran logo diatur di:
+
+```text
 app/globals.css
 ```
 
-## Catatan implementasi
+Cari class berikut:
 
-- Menu berada di sisi kanan, posisinya tengah secara vertikal.
-- Menu dibuat minimalis: hanya list tulisan tanpa panel besar, nomor, atau footer.
-- Menu auto-hide setelah item menu diklik.
-- Tombol hamburger kanan atas untuk membuka menu lagi.
-- Tombol previous/next dan dot slider bagian bawah sudah dihapus.
-- Halaman Home memakai lockup ESCAPE di kiri atas dengan efek glow.
-- Jarak tulisan atas dan bawah terhadap ESCAPE dibuat seimbang.
-- Logo kupu-kupu berada di akhir tulisan ESCAPE dengan ukuran lebih besar dan sedikit jarak.
-- Logo kupu-kupu berada di `public/butterfly-logo.png`.
-- Halaman Ruang Aman sudah memakai redaksi Safe Onboarding for Personal & Business Growth.
-- Ruang Aman punya dua jalur onboarding: Personal menuju Galeri E-Course dan Pemilik Bisnis menuju Produk & Layanan.
-- CTA Personal sementara diarahkan ke halaman Galeri Kehidupan sebagai placeholder galeri, nanti bisa diganti ke data/link E-Course khusus.
-- CTA Pemilik Bisnis langsung berpindah ke menu Produk dan Layanan.
+```css
+.butterfly
+.butterfly-image
+```
+
+## Cara mengubah tulisan brand
+
+Edit file:
+
+```text
+app/page.tsx
+```
+
+Bagian utama yang sering diganti:
+
+```tsx
+<p className="company-name">PT NEUROSAINS INT TECHNOLOGY ID</p>
+<h1>ESCAPE</h1>
+<p className="tagline">RUANG UNTUK KESEHATAN MENTAL & PRODUKTIVITAS</p>
+```
+
+## Cara mengubah menu kanan
+
+Edit data `menuItems` di:
+
+```text
+app/page.tsx
+```
+
+Setiap menu punya:
+
+- `label`: teks menu kanan.
+- `eyebrow`: label kecil di panel.
+- `title`: judul panel.
+- `body`: deskripsi panel.
+- `points`: badge kecil di bawah panel.
+
+## Struktur folder
+
+```text
+escape-landing-nextjs/
+├─ app/
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+├─ public/
+│  ├─ escape-bg-main.png
+│  ├─ escape-butterfly.png
+│  ├─ escape-butterfly-icon.png
+│  └─ favicon.svg
+├─ next.config.ts
+├─ package.json
+├─ tsconfig.json
+└─ README.md
+```
+
+## Catatan desain
+
+- Tidak memakai Tailwind agar ringan dan gampang dipindahkan.
+- Logo kupu-kupu menggunakan asset PNG transparan di `public/escape-butterfly.png`.
+- Typography brand diberi glow halus agar mendekati referensi desain.
+- Tidak memakai database atau backend.
+- Menu kanan membuka panel konten tanpa meninggalkan satu halaman.
+- Di mobile, menu kanan berubah menjadi hamburger.
+- Tombol **RELAX** membuka panel Ruang Aman dengan animasi napas singkat.
+
+## Catatan pengembangan berikutnya
+
+Setelah patch berikutnya, update dokumentasi teknis di README ini agar perubahan menu, asset, atau fitur tetap tercatat rapi.
+
+## Patch ukuran brand
+
+Patch terbaru mengecilkan area brand/logo sekitar 50%, menaikkan posisi logo sedikit ke atas, serta memberi jarak lebih lega antara teks perusahaan, judul ESCAPE, dan tagline.
 
 
-## Ruang Aman hotfix
+## Patch jarak brand
 
-Patch ini menghapus ketergantungan pada `localStorage` untuk visibility copy, sehingga redaksi Ruang Aman selalu tampil ketika menu tersebut dibuka.
-
-## Ruang Aman layout patch
-
-Patch terbaru memindahkan komposisi redaksi Ruang Aman mengikuti referensi visual:
-
-- Label `01 | RUANG AMAN` berada di tengah atas.
-- Judul utama dibuat uppercase, tipis, letter-spaced, dan center.
-- Paragraf pembuka dibuat center dengan lebar besar agar terasa editorial/premium.
-- Dua jalur Personal dan Pemilik Bisnis diposisikan dua kolom di area tengah-bawah.
-- Card kaca sebelumnya dihapus agar halaman lebih bersih, minimalis, dan menyatu dengan background.
-- Ikon kecil, heading, deskripsi, dan tombol CTA dibuat simetris seperti mockup referensi.
-
-## Patch Ruang Aman Aesthetic
-
-- Layout Ruang Aman tetap mengikuti referensi center.
-- Font heading dan body dibuat lebih halus, rapi, dan premium.
-- Spasi antar elemen diperbaiki agar lebih nyaman dipandang.
-- CTA dibuat lebih ringan dan elegan.
-- Dua jalur Personal dan Pemilik Bisnis tetap fungsional.
-
-## Patch terbaru - Ruang Aman tanpa card
-
-- Area Personal dan Pemilik Bisnis dibuat tanpa card/background tipis.
-- Komposisi tetap mengikuti layout center dua kolom.
-- Tipografi, jarak, garis aksen kecil, dan CTA diperhalus agar menyatu dengan background.
+Patch terbaru mengatur jarak teks perusahaan ke judul **ESCAPE** menjadi 10px dan jarak tagline ke judul **ESCAPE** menjadi 10px, termasuk penyesuaian mobile agar komposisi tetap rapat seperti referensi.
 
 
+## Patch terbaru: jarak 5px + Libre Franklin
 
-## Patch Notes - Ruang Aman Compact Blocks
+- Jarak teks company ke logo `ESCAPE` diatur menjadi `5px`.
+- Jarak tagline ke logo `ESCAPE` diatur menjadi `5px`.
+- Font global diganti ke **Libre Franklin** via `next/font/google` di `app/layout.tsx`.
+- Variabel font utama ada di `app/globals.css` pada `--display`, `--serif`, dan `--sans`.
 
-- Heading `Masuk ke Galeri E-Course` dan `Terhubung ke Produk & Layanan` diperkecil.
-- Dua blok konten dibuat lebih compact dan jaraknya didekatkan.
-- Spacing icon, label, paragraf, dan tombol dirapikan agar tetap estetik tanpa card/background.
 
-## Patch update - Ruang Aman one-line heading
+## Patch terbaru: jarak 2px + menu compact/hide
 
-- Heading `Terhubung ke Produk & Layanan` dibuat satu baris pada tampilan desktop.
-- Ukuran heading bisnis dibuat sedikit lebih compact agar tetap rapi tanpa card.
-- Pada layar kecil/mobile, heading tetap boleh turun baris supaya tidak overflow.
+- Jarak teks company ke logo `ESCAPE` diatur menjadi `2px`.
+- Jarak tagline ke logo `ESCAPE` diatur menjadi `2px`.
+- Semua elemen typography dipaksa memakai **Libre Franklin** melalui variabel font global.
+- Tombol **RELAX** diperkecil sekitar 50% agar lebih halus dan tidak mendominasi layar.
+- Menu kanan diperkecil, lebih tipis, dan dapat disembunyikan/ditampilkan memakai tombol kecil **Hide/Show** di kanan atas.
+- Status hide/show menu disimpan di `localStorage` agar tetap konsisten setelah refresh browser.
 
-## Patch update - Dukungan dan Komunitas
+## Patch terbaru: halaman Ruang Aman immersive
 
-- Halaman `Dukungan dan komunitas` sudah memakai redaksi Community Support, Storytelling & Music Window.
-- Layout dibuat editorial/premium: headline center, fitur utama 4 kolom, kategori cerita 3 kolom, dan catatan pengalaman di bagian bawah.
-- Fitur utama yang ditampilkan: Kolom Cerita Satu Arah, Tombol Dukungan, Anonim atau Nama Pilihan, dan Moderasi Admin.
-- Kategori cerita yang ditampilkan: Curhat & Realitas, Inspiratif & Kebaikan, serta Pengakuan Dosa & Pengampunan.
-- Area Musik Rekomendasi via YouTube sudah disiapkan. Untuk mengaktifkan tombol, isi konstanta `communityYoutubeUrl` di `app/page.jsx` dengan URL YouTube yang diinginkan.
+- Klik menu **Ruang Aman** sekarang membuka tampilan full-screen cinematic seperti referensi.
+- Background khusus Ruang Aman disimpan di:
 
-## Patch update - Dukungan dan Komunitas dua kolom
+```text
+public/ruang-aman-bg.png
+```
 
-- Halaman `Dukungan dan komunitas` diubah menjadi layout dua kolom pada desktop.
-- Kolom kiri berisi headline, intro pendek, catatan dukungan komunitas, dan tombol Musik Rekomendasi via YouTube.
-- Kolom kanan berisi detail redaksi yang panjang dan dibuat scroll internal agar halaman tetap rapi, lega, dan tidak terlalu penuh.
-- Detail kanan memuat Fitur Utama, Kategori Cerita, dan Catatan Pengalaman.
-- Pada tablet/mobile layout otomatis menjadi satu kolom dan scroll halaman normal.
+- Konten yang muncul ada di `app/page.tsx` pada block `safe-space-scene`.
+- Styling judul besar, glow, posisi teks, dan tombol kembali ada di `app/globals.css` pada class:
+
+```css
+.safe-space-scene
+.safe-space-content
+.safe-space-close
+```
+
+- Saat tampilan Ruang Aman aktif, brand utama, menu kanan, tombol RELAX, dan footer otomatis disembunyikan agar layar bersih seperti mockup.
+
+## Patch terbaru: halaman Produk Layanan immersive
+
+- Klik menu **Produk Layanan** sekarang membuka tampilan full-screen cinematic seperti referensi.
+- Background khusus Produk Layanan disimpan di:
+
+```text
+public/produk-layanan-bg.png
+```
+
+- Konten list layanan ada di `app/page.tsx` pada block `product-service-scene`:
+
+```text
+Digital Mental Health Support
+Digital Wellness
+Asesmen Psikologis
+Corporate Custom Services
+```
+
+- Styling panel kaca, judul glow, list layanan, dan tombol kembali ada di `app/globals.css` pada class:
+
+```css
+.product-service-scene
+.product-service-card
+.product-service-list
+.product-service-close
+```
+
+- Saat tampilan Produk Layanan aktif, brand utama, menu kanan, tombol RELAX, dan footer otomatis disembunyikan agar layar bersih seperti mockup.
+
+## Patch terbaru: halaman Dukungan Komunitas immersive
+
+- Klik menu **Dukungan Komunitas** sekarang membuka tampilan full-screen cinematic seperti referensi.
+- Background khusus Dukungan Komunitas disimpan di:
+
+```text
+public/dukungan-komunitas-bg.png
+```
+
+- Konten halaman ada di `app/page.tsx` pada block `community-support-scene`:
+
+```text
+Dukungan Komunitas
+Hilang Arah
+Ada cerita apa hari ini?
+Anonim 1 / Anonim 2
+```
+
+- Tombol kotak ikon rumah di kanan atas berfungsi untuk kembali ke landing utama.
+- Styling title glow, panel glass, story card, dan responsive mobile ada di `app/globals.css` pada class:
+
+```css
+.community-support-scene
+.community-support-header
+.community-home-button
+.community-writing-card
+.community-story-card
+```
+
+- Saat tampilan Dukungan Komunitas aktif, brand utama, menu kanan, tombol RELAX, dan footer otomatis disembunyikan agar layar bersih seperti mockup.
 
 ## Patch terbaru
 
-- Halaman Dukungan dan Komunitas diperbesar ukuran fontnya agar lebih nyaman dibaca.
-- Area dua kolom dibuat lebih penuh satu halaman dengan scroll internal tetap aktif di kolom kanan.
+- Background menu **Dukungan Komunitas** diganti memakai gambar komunitas terbaru yang diberikan user.
+- File background yang dipakai: `public/dukungan-komunitas-bg.png`.
 
-## Patch Dukungan & Komunitas - YouTube
+## Patch Terbaru - Dukungan Komunitas Clean Background
 
-Halaman **Dukungan dan Komunitas** sekarang memiliki area video YouTube di kolom kanan, setelah bagian fitur utama.
+Menu **Dukungan Komunitas** sekarang dibersihkan total agar hanya menampilkan background full-screen tanpa judul, card, ikon, atau teks tambahan. Klik area background untuk kembali ke landing utama.
 
-Untuk mengganti video, buka `app/page.jsx` lalu isi:
+## Patch terbaru: Riset & Pengembangan + Narasi Dukungan Komunitas
 
-```jsx
-const communityYoutubeUrl = 'https://www.youtube.com/watch?v=VIDEO_ID';
+- Menu **Riset & Pengembangan** sekarang membuka halaman immersive full-screen.
+- Background halaman Riset & Pengembangan memakai file:
+
+```text
+public/riset-pengembangan-bg.png
 ```
 
-Format yang didukung:
-- `https://www.youtube.com/watch?v=VIDEO_ID`
-- `https://youtu.be/VIDEO_ID`
-- `https://www.youtube.com/embed/VIDEO_ID`
+- Teks pada halaman Riset & Pengembangan diekstrak dari mockup:
 
-
-## YouTube Komunitas
-
-Link YouTube sudah diisi:
-
-```jsx
-const communityYoutubeUrl = 'https://www.youtube.com/live/jfKfPfyJRdk?si=XNobWQBs9aSSXXEo';
+```text
+Riset & Pengembangan
+Menggunakan parameter penelitian berstandar internasional, kami memastikan setiap pengembangan produk didasarkan pada studi manusia yang komprehensif dan pembaruan sains terkini. Kami tidak hanya mengikuti tren; kami membangun masa depan melalui validasi ilmiah.
+>100 Ribu
+Orang di Indonesia
+Menerima manfaat dari Edukasi Kesehatan Mental yang kami lakukan
 ```
 
-## Patch update - Riset dan Pengembangan
+- Logo pada kartu Riset & Pengembangan memakai asset kupu-kupu utama:
 
-- Halaman `Riset dan Pengembangan` sudah memakai redaksi `International Research Library & Evidence-Based Development`.
-- Layout dibuat dua kolom pada desktop.
-- Kolom kiri berisi label `04 / RISET & PENGEMBANGAN`, headline, subheadline, dan paragraf utama.
-- Kolom kanan berisi ringkasan alur `Evidence Flow`: International Library, Human-Centered Insight, dan Product Development.
-- Pada tablet/mobile layout otomatis menjadi satu kolom agar tetap mudah dibaca.
-
-## Patch update - Riset dan Pengembangan Form
-
-- Kolom kanan halaman `Riset dan Pengembangan` sekarang menjadi form input `Form Permintaan Riset`.
-- Field tersedia: Nama Perusahaan, Nama PIC, Email Perusahaan, Nomor WhatsApp, dan Kebutuhan Riset.
-- Tombol `Kirim ke Email` otomatis membuat draft email via `mailto` dari input form.
-- Tombol `Kirim ke WhatsApp` disiapkan lewat `wa.me`; isi dulu konstanta berikut di `app/page.jsx`:
-
-```jsx
-const researchTargetEmail = '';
-const researchTargetWhatsapp = '';
+```text
+public/escape-butterfly.png
 ```
 
-- Bagian `Perpustakaan Jurnal Internasional` ditaruh di bawah form kanan sebagai catatan pendukung.
+- Menu **Dukungan Komunitas** tidak lagi hanya menampilkan background. Sekarang sudah ditambahkan narasi singkat yang lebih sesuai dengan konsep komunitas Escape: ruang aman, saling menguatkan, tanpa stigma, tanpa tekanan, dan tanpa penghakiman.
+- Font **Libre Franklin** dimuat melalui CSS `@import` di `app/globals.css`, sehingga build lokal tidak bergantung pada `next/font/google`.
 
-## Patch fix - Riset dan Pengembangan 2 kolom compact
+## Catatan build patch ini
 
-- Halaman `Riset dan Pengembangan` dirapikan ulang agar benar-benar terbagi 2 kolom.
-- Kolom kiri sekarang berisi `Riset & Pengembangan`, `International Research Library & Evidence-Based Development`, subheadline, dan paragraf utama.
-- Kolom kanan berisi `Form Permintaan Riset`, field input, tombol kirim Email/WhatsApp, serta catatan `Perpustakaan Jurnal Internasional`.
-- Ukuran headline kiri dikecilkan dari versi sebelumnya agar tidak mendominasi layar.
-- Form kanan dibuat lebih compact, rapi, dan tetap elegan dengan scroll internal bila tinggi layar terbatas.
+- `npm run typecheck` berhasil.
+- `npm run build` berhasil melewati tahap compile, tetapi proses build di container sempat timeout pada tahap collecting page data. Di environment lokal/Vercel, jalankan ulang:
 
-## Patch update - Riset dan Pengembangan final content library
-
-- Halaman `Riset & Pengembangan` diatur ulang menjadi dua kolom yang lebih seimbang.
-- Kolom kiri berisi headline, narasi utama, dan tombol CTA `Bangun riset untuk bisnis Anda bersama NeuroTech ID`.
-- Kolom kanan berisi form permintaan riset, tombol kirim Email/WhatsApp, catatan perpustakaan jurnal, dan daftar bahan bacaan riset.
-- Daftar bacaan riset dibuat dalam bentuk kartu compact dengan cover visual sederhana, intisari Bahasa Indonesia, dan link `Pelajari lebih dalam` ke sumber eksternal.
-- Form WhatsApp sekarang tetap membuka WhatsApp share meskipun nomor tujuan belum diisi. Untuk order nyata, isi konfigurasi berikut di `app/page.jsx`:
-
-```jsx
-const researchTargetEmail = 'email-perusahaan@domain.com';
-const researchTargetWhatsapp = '628xxxxxxxxxx';
+```bash
+npm install
+npm run build
 ```
 
-- Sumber awal yang dipasang: ResearchGate, JMIR, OECD, Oxford Saïd, dan Jurnal UNIGAL. Sumber bisa diganti langsung dari array `researchReferences` di `app/page.jsx`.
+## Patch v3 — Typography, Riset, dan Dukungan
 
+- Seluruh typography dipertegas kembali menggunakan **Libre Franklin** dengan bobot tipis/clean, bukan bold tebal.
+- Background **Riset & Pengembangan** memakai gambar starfield terbaru.
+- Background **Dukungan Komunitas** juga memakai gambar starfield terbaru agar konsisten.
+- Elemen mockup iPad/device di halaman riset dihapus.
+- Narasi **Dukungan Komunitas** diperbaiki agar lebih cocok untuk positioning Escape.
+- Narasi **Riset & Pengembangan** disusun ulang sesuai copy final.
 
-## Patch update - Perubahan menu
+## Patch v4 — Galeri Kehidupan
 
-- `Home` tetap `Home`.
-- Menambahkan menu baru `Bisnis & Manusia` setelah Home.
-- `Ruang Aman` tetap `Ruang Aman`.
-- `Produk dan layanan` berubah menjadi `Produk Layanan Kesehatan Mental`.
-- `Dukungan dan Komunitas` berubah menjadi `Dukungan Komunitas`.
-- `Riset dan Pengembangan` berubah menjadi `Riset dan Pengembangan Manusia`.
-- `Tentang Kami` tetap `Tentang Kami`.
-- `Galeri Kehidupan` berubah menjadi `Galeri kehidupan`.
-- Lebar menu kanan disesuaikan agar label panjang tetap terlihat lebih rapi dan minimalis.
+- Menu **Galeri Kehidupan** sekarang membuka halaman immersive full-screen.
+- Background Galeri memakai file:
 
-## Patch terbaru
-
-- Halaman **Riset dan Pengembangan Manusia** dipusatkan ulang agar tidak bergeser ke kanan.
-- Layout dibuat dua kolom lebih compact: kolom kiri untuk narasi dan CTA, kolom kanan untuk form dan perpustakaan jurnal.
-- Ukuran font, spacing, form, dan kartu referensi dibuat lebih seimbang agar nyaman dibaca di layar desktop.
-
-## Patch terbaru - Riset font readability
-
-- Font halaman **Riset dan Pengembangan Manusia** dibesarkan sedikit agar lebih nyaman dibaca.
-- Layout 2 kolom tetap dipertahankan.
-- Kolom kanan tetap memakai scroll internal untuk menjaga konten form dan perpustakaan riset tetap rapi.
-
-## Patch - Tentang Kami / BOD Drawer
-
-Update ini menambahkan desain khusus untuk menu **Tentang Kami**:
-
-- Layout dua kolom yang dipusatkan di layar.
-- Kolom kiri berisi narasi tentang arah NeuroTech ID.
-- Kolom kanan berisi **Kolom BOD** dengan thumbnail semua pimpinan.
-- Thumbnail Lakudus memakai file foto asli di `public/team/lakudus.jpg`.
-- Profil lain memakai placeholder inisial sampai foto resmi tersedia.
-- Detail profil menggunakan model drawer/card dengan area teks scroll internal agar tetap compact dan mudah dibaca.
-
-Untuk mengganti atau menambah foto BOD:
-
-1. Simpan foto ke folder `public/team/`.
-2. Buka `app/page.jsx`.
-3. Pada `boardMembers`, isi properti `image`, contoh:
-
-```jsx
-image: '/team/nama-file.jpg'
+```text
+public/galeri-bg.png
 ```
 
+- Contoh 5 gambar dummy galeri ada di folder:
 
-## Patch terbaru - Tentang Kami BOD auto expand
-
-- Headline `Manusia, Bisnis, dan Ruang Pulih yang Bertumbuh.` diperkecil sedikit.
-- Kolom kiri diberi jarak atas/bawah yang lebih lega agar tidak terasa naik.
-- Label `Kolom BOD` dihapus dari panel kanan.
-- Setelah halaman **Tentang Kami** terbuka selama 5 detik, panel BOD otomatis melebar dan kolom kiri disembunyikan.
-- Saat panel BOD melebar, area foto dan detail profil dibuat lebih lapang agar portrait terlihat lebih utuh dan tidak terjepit.
-
-
-## Patch: Tentang Kami responsive BOD balance
-
-- Kolom BOD tidak lagi menghilang ketika mode auto-expand aktif.
-- Redaksi kiri tetap tampil dan tetap mudah dibaca.
-- Panel BOD dibuat responsif: thumbnail, foto, dan pesan kepemimpinan menyesuaikan ukuran layar.
-- Di layar kecil layout otomatis menjadi satu kolom agar foto dan teks tidak terjepit.
-
-## Patch terbaru - Floating WhatsApp CTA
-
-- Menambahkan tombol WhatsApp melayang di kanan bawah pada semua halaman/menu.
-- Tombol tetap tampil saat berpindah menu karena berada di level utama `site-shell`.
-- Nomor tujuan sudah diarahkan ke `+628176494177` menggunakan format `wa.me/628176494177`.
-- Ukuran dibuat compact berbentuk ikon; pada desktop akan melebar halus saat hover dan menampilkan label `WhatsApp`.
-- Untuk mengubah nomor atau pesan awal, edit konstanta berikut di `app/page.jsx`:
-
-```jsx
-const floatingWhatsappNumber = '628176494177';
-const floatingWhatsappMessage = 'Halo NeuroTech ID, saya ingin terhubung dan bertanya tentang layanan.';
+```text
+public/gallery/gallery-01.png
+public/gallery/gallery-02.png
+public/gallery/gallery-03.png
+public/gallery/gallery-04.png
+public/gallery/gallery-05.png
 ```
 
-## Patch - Urutan BOD
+- Untuk mengganti gambar galeri, cukup replace file di folder `public/gallery/` dengan nama yang sama. Kalau ingin menambah/mengurangi jumlah gambar, ubah array `galleryItems` di `app/page.tsx`.
+- Layout galeri mengikuti mockup: judul besar di kiri atas, narasi singkat, susunan foto bergaya frame putih dengan tape, dan instruksi **Geser & Tekan untuk Memilih**.
+- Klik gambar akan membuka popup/lightbox besar. Klik area gelap, tombol `×`, atau tekan `Esc` untuk menutup popup.
+- Styling halaman galeri ada di `app/globals.css` pada class:
 
-Menu Tentang Kami diperbarui dengan urutan thumbnail BOD:
-1. Iis Syadiah - Direktur Utama
-2. Lakudus B.Psych MBA C.Ht - Komisaris
-3. Ahyar Anas - Direktur Kepatuhan
-4. Della Angela S.E - Direktur Pemasaran
-5. Sadam Nursidi - Direktur Keuangan
+```css
+.gallery-life-scene
+.gallery-intro
+.gallery-polaroid-track
+.gallery-polaroid
+.gallery-lightbox
+```
 
-Foto Sadam tersedia di `public/team/sadam.jpg`. Foto Lakudus tetap memakai `public/team/lakudus.jpg`. Foto lain dapat diganti nanti dengan mengisi properti `image` pada array `boardMembers` di `app/page.jsx`.
+## Catatan build patch v4
 
-## Patch - Koreksi Urutan BOD
+Patch ini belum menjalankan validasi build penuh di container karena `node_modules` tidak disertakan di ZIP kerja. Setelah ekstrak di lokal, jalankan:
 
-Menu Tentang Kami diperbarui kembali dengan urutan BOD yang benar:
+```bash
+npm install
+npm run typecheck
+npm run build
+```
 
-1. Lakudus B.Psych MBA C.Ht - Komisaris
-2. Iis Syadiah - Direktur Utama
-3. Ahyar Anas - Direktur Kepatuhan
-4. Della Angela S.E - Direktur Pemasaran
-5. Sadam Nursidi - Direktur Keuangan
+## Patch v5 - Mobile Responsive
 
-Foto Lakudus tetap memakai `public/team/lakudus.jpg`. Foto Sadam tetap memakai `public/team/sadam.jpg`. Foto Iis, Ahyar, dan Della masih memakai placeholder inisial dan bisa diganti nanti lewat properti `image` pada array `boardMembers` di `app/page.jsx`.
+Landing page sudah dipoles untuk mobile:
 
-## Patch - Bisnis & Manusia / Indonesia Coconut
+- Menu kanan berubah menjadi hamburger overlay di layar kecil.
+- Semua halaman full-screen (`Ruang Aman`, `Produk Layanan`, `Dukungan Komunitas`, `Riset & Pengembangan`, dan `Galeri Kehidupan`) sudah diberi layout khusus mobile.
+- Konten panjang di mobile bisa discroll dengan halus.
+- Tombol kembali mengikuti safe-area mobile.
+- Galeri memakai horizontal scroll dan popup gambar tetap responsif.
+- Support viewport kecil dan landscape mobile.
 
-- Menu **Bisnis & Manusia** sekarang memiliki layout khusus, bukan lagi placeholder umum.
-- Konten utama menampilkan narasi awal tentang hubungan bisnis, manusia, dan produk mentah unggulan Indonesia.
-- Ditambahkan blok **Produk mentah unggulan** dengan item klik **Indonesia Coconut**.
-- Saat **Indonesia Coconut** diklik, muncul popup modal dengan background gambar kelapa/pohon yang tersimpan di `public/backgrounds/indonesia-coconut.webp`.
-- Modal sudah bisa ditutup lewat tombol `×`, klik area luar modal, atau tombol `Siap dikembangkan`.
-- Modal juga otomatis tertutup saat user pindah menu.
+## Patch: Privacy Policy
 
-## Patch - Bisnis & Manusia Coconut Slider
+Halaman kebijakan privasi sudah ditambahkan sebagai slug langsung dan tidak dimasukkan ke menu utama.
 
-- Popup **Indonesia Coconut** diubah menjadi model showcase full-screen seperti referensi visual.
-- Slide pertama memakai background palm/coconut landscape dengan logo kupu-kupu, judul **Produk Mentah Unggulan**, label **Indonesian Coconut**, dan narasi produksi kelapa Indonesia.
-- Slide kedua memakai background potongan kelapa dengan narasi efisiensi kelapa Indonesia dan deskripsi keunggulan produk.
-- Tombol panah kiri/kanan bisa dipakai untuk berpindah antar 2 tampilan.
-- Keyboard juga didukung: `ArrowLeft`, `ArrowRight`, dan `Escape` untuk tutup showcase.
-- Asset baru berada di `public/backgrounds/indonesia-coconut-cut.webp`.
+Akses lokal:
 
-## Patch Coconut Showcase Polish
+```bash
+http://localhost:3000/privacy-policy
+```
 
-Popup **Indonesia Coconut** diperhalus lagi supaya lebih premium dan tidak berantakan:
+Akses production setelah domain diarahkan:
 
-- transisi slide dibuat lebih smooth,
-- panel judul dan narasi dibuat lebih seimbang,
-- tombol panah diperkecil dan diperhalus,
-- overlay background dibuat lebih cinematic,
-- teks slide dibuat lebih compact agar nyaman dibaca,
-- dot indicator dibuat lebih minimalis.
+```text
+https://neurointek.com/privacy-policy
+```
 
+File utama:
 
-## Patch Terbaru - Coconut Showcase Refine
+```text
+app/privacy-policy/page.tsx
+```
 
-- Showcase Indonesia Coconut diperhalus lagi: typography lebih elegan, spacing lebih rapi, dan overlay dibuat lebih cinematic.
-- Arrow kiri/kanan dibuat lebih ramping agar tidak terasa kasar.
-- Responsiveness diperbaiki untuk desktop, tablet, dan mobile.
-- Slide tetap 2 tampilan: opening produk mentah unggulan dan narasi Indonesian Coconut.
+Styling halaman privacy policy berada di bagian akhir:
 
-## Patch - Coconut Showcase Arrow & Typography Softening
-
-- Tombol navigasi kiri/kanan pada Indonesia Coconut Showcase dibuat lebih tipis, glassy, dan halus.
-- Gradasi overlay tiap slide diperhalus agar teks tetap terbaca tanpa terlihat berat.
-- Font pada showcase dibuat lebih ringan, tidak bold, dan lebih clean.
-- Responsive mobile/tablet untuk tombol panah disesuaikan agar tetap compact.
-
-## Patch terbaru: Refinement editorial slides
-
-Slide ARANG, Kopra, dan Ladang Beras Putih pada showcase Bisnis & Manusia sudah diperhalus: font dibuat lebih ringan, ukuran judul tidak terlalu besar, spacing lebih elegan, gradient masing-masing background lebih lembut, dan responsive mobile/tablet dirapikan.
-
-## Patch - Hubungi Kami Product Gallery
-
-- Ditambahkan slide **Hubungi Kami** setelah slide **Ladang Beras Putih** di showcase **Bisnis & Manusia**.
-- Slide memakai background sawah hijau `public/backgrounds/contact-rice-bg.webp`.
-- Galeri produk ditempel dalam format horizontal: Kopra, Arang, Petani Lokal, Kopi, dan Bawang.
-- Navigasi tetap memakai panah kiri/kanan dan dot indicator yang sama dengan showcase sebelumnya.
-- Asset slide berada di `public/backgrounds/contact-*.webp`.
-
-
-## Final Patch Notes
-
-- Website title sudah menjadi **PT. Neurosains Inti Technology ID**.
-- Logo/tulisan **ESCAPE** di halaman Home sekarang bisa diklik untuk kembali ke Home.
-- Slide **Hubungi Kami** diperhalus: judul lebih kecil, spacing lebih rapi, dan kotak galeri diperkecil agar tidak berantakan.
-- Asset background utama sudah dioptimasi ke format **WebP** agar loading lebih ringan.
-
-## Cara Membuat Load Gambar Lebih Ringan
-
-1. Gunakan format **WebP** untuk background dan galeri.
-2. Untuk gambar full-screen, cukup simpan lebar sekitar **1920–2048px**; tidak perlu terlalu besar kalau hanya untuk website.
-3. Kompres kualitas di kisaran **75–85** agar tetap tajam tapi ukuran jauh lebih kecil.
-4. Gunakan `loading="lazy"` untuk gambar galeri atau gambar yang tidak langsung terlihat.
-5. Jangan load semua gambar sekaligus; tampilkan hanya slide/menu yang sedang dibuka.
-6. Untuk deploy production di Next.js, jalankan `npm run build` agar asset dan bundle diproses optimal.
-
-## Patch: Produk Layanan Kesehatan Mental
-
-Halaman `Produk Layanan Kesehatan Mental` sudah memiliki layout khusus 2 kolom:
-
-- Kolom kiri: narasi utama, catatan T&C user bisnis, kategori layanan, dan CTA konsultasi.
-- Kolom kanan: detail Digital Mental Health Support, Digital Wellness, Asesmen Psikologis, daftar model skrining, disclaimer hasil, dan Custom Layanan.
-- CTA layanan mengarah ke nomor WhatsApp global yang sudah dikonfigurasi di `floatingWhatsappNumber` pada `app/page.jsx`.
-
-Untuk pengembangan berikutnya, bagian asesmen dapat dihubungkan ke backend/API khusus agar hasil skrining, akses gratis, dan akses berbayar bisa dikelola dari dashboard admin.
-
-## Patch Produk Layanan - Center Layout
-Halaman **Produk Layanan Kesehatan Mental** diperbaiki agar komposisi teks berada di tengah layar, bukan bergeser ke pojok kanan. Layout desktop tetap 2 kolom, sedangkan tablet/mobile otomatis menjadi 1 kolom dengan scroll halaman.
-
-## Patch Produk Layanan Font Bigger
-
-- Font halaman Produk Layanan Kesehatan Mental dibesarkan sedikit agar lebih nyaman dibaca.
-- Layout tetap dipertahankan center-screen dan tidak digeser.
-- Penyesuaian berlaku untuk hero, detail layanan, assessment, tombol, dan mobile responsive.
-
-
-## Handover Prompt
-
-File `HANDOVER_PROMPT.md` disertakan untuk melanjutkan patch berikutnya. Ringkasnya: project ini adalah website Next.js single-page dengan background visual per menu, menu kanan minimalis, floating WhatsApp global, dan style tipis/premium. Update terakhir mengganti background Produk Layanan Kesehatan Mental ke sunset/laut dan menambahkan tombol WhatsApp di showcase Indonesia Coconut.
-
-## Patch Produk Layanan Background Lake Sunset
-
-Background menu **Produk Layanan Kesehatan Mental** diganti ke visual danau/sunset terbaru dari upload user. File tetap memakai path yang sama agar tidak perlu mengubah logic section: `public/backgrounds/2-produk-layanan.webp`.
-
-## Handover Prompt Update
-
-File `HANDOVER_PROMPT.md` tetap disertakan. Update terakhir: background Produk Layanan Kesehatan Mental diganti dari sunset laut ke visual danau/sunset terbaru, tetap dalam format WebP ringan.
-
-## Patch terbaru - CTA Produk Mentah + Background Riset
-
-- Background menu **Riset dan Pengembangan Manusia** diganti ke gambar analitik/meeting hitam-putih.
-- Tombol-tombol riset diperjelas supaya tidak menyatu atau overlap visual dengan background.
-- CTA **Indonesia Coconut** pada menu **Bisnis & Manusia** diberi animasi halus agar terasa clickable tanpa merusak estetika minimalis.
-
-## Patch terbaru: Responsive mobile menu dan CTA mobile
-- Hamburger menu di mobile sekarang membuka overlay gelap + blur halus agar tulisan menu terbaca dan tidak bertabrakan dengan konten halaman.
-- Menu mobile diposisikan di tengah layar dengan panel glass minimalis.
-- CTA Indonesia Coconut di halaman Bisnis & Manusia dibuat lebih terlihat di mobile lewat animasi tap, sweep, pulse dot, dan label tap.
-- File handover lanjutan tetap tersedia di `HANDOVER_PROMPT.md`.
-
-### Patch mobile menu hard dark overlay
-Pada mobile, hamburger menu kini membuka menu full-screen dengan background gelap solid agar item menu tidak overlap dengan konten halaman aktif. Perubahan utama ada di `app/globals.css` pada blok `Mobile menu hard-dark overlay patch`.
-
-
-## Patch terbaru
-
-- Menu tidak lagi otomatis terbuka saat website pertama kali dibuka.
-- Foto Iis Syadiah S.H sudah dipasang pada bagian BOD Tentang Kami.
-- Urutan BOD tetap: Lakudus → Iis Syadiah S.H → Ahyar Anas → Della Angela → Sadam Nursidi.
+```text
+app/globals.css
+```
